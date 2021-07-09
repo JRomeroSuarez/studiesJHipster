@@ -3,6 +3,7 @@ package com.universaldoctor.studies.web.rest;
 import com.universaldoctor.studies.domain.Forms;
 import com.universaldoctor.studies.domain.Study;
 import com.universaldoctor.studies.repository.FormsRepository;
+import com.universaldoctor.studies.repository.ParticipantsRepository;
 import com.universaldoctor.studies.repository.StudyRepository;
 import com.universaldoctor.studies.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -34,7 +35,8 @@ public class StudyResource {
     private String applicationName;
 
     private final StudyRepository studyRepository;
-    private FormsRepository formsRepository;
+
+    private ParticipantsRepository participantsRepository;
 
     public StudyResource(StudyRepository studyRepository) {
         this.studyRepository = studyRepository;
@@ -167,18 +169,6 @@ public class StudyResource {
         log.debug("REST request to get Study : {}", id);
         Optional<Study> study = studyRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(study);
-    }
-
-    /**
-     * {@code GET  /studies/:id/forms} : get all the studies.
-     *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of the forms by study.
-     */
-    @GetMapping("/studies/{id}/forms")
-    public Set<Forms> getAllFormsByStudy(@PathVariable String id) {
-        log.debug("REST request to get all Studies");
-        Optional<Study> study = studyRepository.findById(id);
-        return formsRepository.findAllByStudy(study.get()).get();
     }
 
     /**
