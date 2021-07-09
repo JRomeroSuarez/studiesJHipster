@@ -1,0 +1,47 @@
+{
+  "name": "Forms",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numResponses",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "questions",
+      "otherEntityRelationshipName": "forms",
+      "relationshipName": "questions"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "formAnswer",
+      "otherEntityRelationshipName": "forms",
+      "relationshipName": "formAnswer"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "study",
+      "otherEntityRelationshipName": "forms",
+      "relationshipName": "study"
+    }
+  ],
+  "entityTableName": "forms",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210709085248"
+}

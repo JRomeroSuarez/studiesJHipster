@@ -1,0 +1,29 @@
+{
+  "studiesJHipsterApp": {
+    "forms": {
+      "home": {
+        "title": "Forms",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Forms",
+        "createOrEditLabel": "Crear o editar Forms",
+        "notFound": "Ningún Forms encontrado"
+      },
+      "created": "Un nuevo Forms ha sido creado con el identificador {{ param }}",
+      "updated": "Un Forms ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Forms ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Forms {{ id }}?"
+      },
+      "detail": {
+        "title": "Forms"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "numResponses": "Num Responses",
+      "questions": "Questions",
+      "formAnswer": "Form Answer",
+      "study": "Study"
+    }
+  }
+}

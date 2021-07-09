@@ -42,6 +42,8 @@
     "devServerPort": 9060,
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["en", "es"]
+    "languages": ["en", "es"],
+    "entities": ["Study", "Participants", "Forms", "Questions", "Answer", "FormAnswer"],
+    "lastLiquibaseTimestamp": 1625820771000
   }
 }

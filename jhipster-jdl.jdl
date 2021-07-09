@@ -1,0 +1,69 @@
+
+entity Study {
+	title String
+    description String
+    numParticipants Integer
+    numForms Integer
+}
+
+entity Participants{
+	email String
+    associatedForms String
+    formsCompleted Integer
+    languaje String
+    invitationStatus Status
+    actions String
+}
+
+entity Forms{
+	title String
+    description String 
+    numResponses Integer
+}
+
+entity Questions{
+	subtitle String
+    info String
+    fieldType FieldType
+    mandatory Boolean
+    variableName String
+    units String
+    conditional Boolean
+    creationDate Instant
+    editDate Instant
+    actions String
+}
+entity Answer{
+	answer String
+}
+
+entity FormAnswer{
+	creationForm Instant
+    modifiedForm Instant
+}
+
+enum FieldType {
+	INFO (Info),
+    FREE_TEXT (Text),
+    RANGE (Range),
+    DATA (Data),
+    SINGLE_SELECT (Single),
+    NUMERIC (Numeric),
+    MULTIPLE_SELECT (Multiple)
+}
+
+enum Status{
+	ACCEPTED (Accepted),
+    PENDING (Pending),
+    REJECTED (Rejected)
+}
+
+relationship OneToMany {
+	Study to Forms
+	Study to Participants
+	Forms to Questions
+    Questions to Answer
+    Forms to FormAnswer
+    FormAnswer to Answer
+}
+

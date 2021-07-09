@@ -1,0 +1,10 @@
+{
+  "studiesJHipsterApp": {
+    "Status": {
+      "null": "",
+      "ACCEPTED": "Accepted",
+      "PENDING": "Pending",
+      "REJECTED": "Rejected"
+    }
+  }
+}

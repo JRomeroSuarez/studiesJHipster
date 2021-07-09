@@ -1,0 +1,45 @@
+{
+  "name": "Study",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numParticipants",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numForms",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "forms",
+      "otherEntityRelationshipName": "study",
+      "relationshipName": "forms"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "participants",
+      "otherEntityRelationshipName": "study",
+      "relationshipName": "participants"
+    }
+  ],
+  "entityTableName": "study",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210709085246"
+}

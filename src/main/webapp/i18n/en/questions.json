@@ -1,0 +1,35 @@
+{
+  "studiesJHipsterApp": {
+    "questions": {
+      "home": {
+        "title": "Questions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Questions",
+        "createOrEditLabel": "Create or edit a Questions",
+        "notFound": "No Questions found"
+      },
+      "created": "A new Questions is created with identifier {{ param }}",
+      "updated": "A Questions is updated with identifier {{ param }}",
+      "deleted": "A Questions is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Questions {{ id }}?"
+      },
+      "detail": {
+        "title": "Questions"
+      },
+      "id": "ID",
+      "subtitle": "Subtitle",
+      "info": "Info",
+      "fieldType": "Field Type",
+      "mandatory": "Mandatory",
+      "variableName": "Variable Name",
+      "units": "Units",
+      "conditional": "Conditional",
+      "creationDate": "Creation Date",
+      "editDate": "Edit Date",
+      "actions": "Actions",
+      "answer": "Answer",
+      "forms": "Forms"
+    }
+  }
+}

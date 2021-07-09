@@ -1,0 +1,30 @@
+{
+  "studiesJHipsterApp": {
+    "participants": {
+      "home": {
+        "title": "Participants",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Participants",
+        "createOrEditLabel": "Crear o editar Participants",
+        "notFound": "Ningún Participants encontrado"
+      },
+      "created": "Un nuevo Participants ha sido creado con el identificador {{ param }}",
+      "updated": "Un Participants ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Participants ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Participants {{ id }}?"
+      },
+      "detail": {
+        "title": "Participants"
+      },
+      "id": "ID",
+      "email": "Email",
+      "associatedForms": "Associated Forms",
+      "formsCompleted": "Forms Completed",
+      "languaje": "Languaje",
+      "invitationStatus": "Invitation Status",
+      "actions": "Actions",
+      "study": "Study"
+    }
+  }
+}

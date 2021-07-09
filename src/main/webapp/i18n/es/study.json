@@ -1,0 +1,29 @@
+{
+  "studiesJHipsterApp": {
+    "study": {
+      "home": {
+        "title": "Studies",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Study",
+        "createOrEditLabel": "Crear o editar Study",
+        "notFound": "Ningún Studies encontrado"
+      },
+      "created": "Un nuevo Study ha sido creado con el identificador {{ param }}",
+      "updated": "Un Study ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Study ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Study {{ id }}?"
+      },
+      "detail": {
+        "title": "Study"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "numParticipants": "Num Participants",
+      "numForms": "Num Forms",
+      "forms": "Forms",
+      "participants": "Participants"
+    }
+  }
+}

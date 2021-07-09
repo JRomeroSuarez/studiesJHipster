@@ -1,0 +1,37 @@
+{
+  "name": "FormAnswer",
+  "fields": [
+    {
+      "fieldName": "creationForm",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "modifiedForm",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "answer",
+      "otherEntityRelationshipName": "formAnswer",
+      "relationshipName": "answer"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "forms",
+      "otherEntityRelationshipName": "formAnswer",
+      "relationshipName": "forms"
+    }
+  ],
+  "entityTableName": "form_answer",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210709085251"
+}

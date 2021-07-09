@@ -11,6 +11,18 @@ import activate, { ActivateState } from 'app/modules/account/activate/activate.r
 import password, { PasswordState } from 'app/modules/account/password/password.reducer';
 import settings, { SettingsState } from 'app/modules/account/settings/settings.reducer';
 import passwordReset, { PasswordResetState } from 'app/modules/account/password-reset/password-reset.reducer';
+// prettier-ignore
+import study from 'app/entities/study/study.reducer';
+// prettier-ignore
+import participants from 'app/entities/participants/participants.reducer';
+// prettier-ignore
+import forms from 'app/entities/forms/forms.reducer';
+// prettier-ignore
+import questions from 'app/entities/questions/questions.reducer';
+// prettier-ignore
+import answer from 'app/entities/answer/answer.reducer';
+// prettier-ignore
+import formAnswer from 'app/entities/form-answer/form-answer.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const rootReducer = {
@@ -24,6 +36,12 @@ const rootReducer = {
   passwordReset,
   password,
   settings,
+  study,
+  participants,
+  forms,
+  questions,
+  answer,
+  formAnswer,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 };

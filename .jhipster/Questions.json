@@ -1,0 +1,70 @@
+{
+  "name": "Questions",
+  "fields": [
+    {
+      "fieldName": "subtitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "info",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fieldType",
+      "fieldType": "FieldType",
+      "fieldValues": "INFO (Info),FREE_TEXT (Text),RANGE (Range),DATA (Data),SINGLE_SELECT (Single),NUMERIC (Numeric),MULTIPLE_SELECT (Multiple)"
+    },
+    {
+      "fieldName": "mandatory",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "variableName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "units",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "conditional",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "creationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "editDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "actions",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "answer",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "answer"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "forms",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "forms"
+    }
+  ],
+  "entityTableName": "questions",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210709085249"
+}
