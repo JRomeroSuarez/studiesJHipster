@@ -1,8 +1,10 @@
 package com.universaldoctor.studies.repository;
 
+import com.universaldoctor.studies.domain.Forms;
 import com.universaldoctor.studies.domain.Questions;
+import java.util.Optional;
+import java.util.Set;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,4 +12,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface QuestionsRepository extends MongoRepository<Questions, String> {}
+public interface QuestionsRepository extends MongoRepository<Questions, String> {
+    Optional<Set<Questions>> findAllByForm(Forms form);
+}

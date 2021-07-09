@@ -27,7 +27,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @IntegrationTest
 @AutoConfigureMockMvc
 @WithMockUser
-class QuestionsResourceIT {
+class QuestionsServiceImplResourceIT {
 
     private static final String DEFAULT_SUBTITLE = "AAAAAAAAAA";
     private static final String UPDATED_SUBTITLE = "BBBBBBBBBB";

@@ -1,6 +1,8 @@
 package com.universaldoctor.studies.web.rest;
 
+import com.universaldoctor.studies.domain.Forms;
 import com.universaldoctor.studies.domain.Questions;
+import com.universaldoctor.studies.repository.FormsRepository;
 import com.universaldoctor.studies.repository.QuestionsRepository;
 import com.universaldoctor.studies.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -8,6 +10,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,9 +34,11 @@ public class QuestionsResource {
     private String applicationName;
 
     private final QuestionsRepository questionsRepository;
+    private final FormsRepository formsRepository;
 
-    public QuestionsResource(QuestionsRepository questionsRepository) {
+    public QuestionsResource(QuestionsRepository questionsRepository, FormsRepository formsRepository) {
         this.questionsRepository = questionsRepository;
+        this.formsRepository = formsRepository;
     }
 
     /**
@@ -59,7 +64,7 @@ public class QuestionsResource {
     /**
      * {@code PUT  /questions/:id} : Updates an existing questions.
      *
-     * @param id the id of the questions to save.
+     * @param id        the id of the questions to save.
      * @param questions the questions to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated questions,
      * or with status {@code 400 (Bad Request)} if the questions is not valid,
@@ -93,7 +98,7 @@ public class QuestionsResource {
     /**
      * {@code PATCH  /questions/:id} : Partial updates given fields of an existing questions, field will ignore if it is null
      *
-     * @param id the id of the questions to save.
+     * @param id        the id of the questions to save.
      * @param questions the questions to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated questions,
      * or with status {@code 400 (Bad Request)} if the questions is not valid,
