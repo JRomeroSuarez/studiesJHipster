@@ -1,16 +1,23 @@
 package com.universaldoctor.studies.web.rest;
 
 import com.universaldoctor.studies.domain.Forms;
+import com.universaldoctor.studies.domain.Study;
 import com.universaldoctor.studies.repository.FormsRepository;
+import com.universaldoctor.studies.repository.StudyRepository;
 import com.universaldoctor.studies.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -31,9 +38,11 @@ public class FormsResource {
     private String applicationName;
 
     private final FormsRepository formsRepository;
+    private final StudyRepository studyRepository;
 
-    public FormsResource(FormsRepository formsRepository) {
+    public FormsResource(FormsRepository formsRepository, StudyRepository studyRepository) {
         this.formsRepository = formsRepository;
+        this.studyRepository = studyRepository;
     }
 
     /**
@@ -160,6 +169,18 @@ public class FormsResource {
         log.debug("REST request to get Forms : {}", id);
         Optional<Forms> forms = formsRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(forms);
+    }
+
+    /**
+     * {@code GET  /studies/:id/forms} : get all the studies.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of the forms by study.
+     */
+    @GetMapping("/studies/{id}/forms")
+    public ResponseEntity<Set<Forms>> getAllFormsByStudy(@PathVariable String id) {
+        log.debug("REST request to get all Forms by study");
+        Optional<Study> study = studyRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(formsRepository.findAllByStudy(study.get()));
     }
 
     /**

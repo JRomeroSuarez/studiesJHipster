@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.universaldoctor.studies.web.rest.TestUtil;
 import org.junit.jupiter.api.Test;
 
-class FormsTest {
+class FormsServiceTest {
 
     @Test
     void equalsVerifier() throws Exception {
