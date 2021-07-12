@@ -13,5 +13,5 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface QuestionsRepository extends MongoRepository<Questions, String> {
-    Optional<Set<Questions>> findAllByForm(Forms form);
+    Optional<Set<Questions>> findAllByForms(Forms form);
 }
