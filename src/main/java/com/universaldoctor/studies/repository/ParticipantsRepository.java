@@ -1,12 +1,10 @@
 package com.universaldoctor.studies.repository;
 
-import com.universaldoctor.studies.domain.Forms;
 import com.universaldoctor.studies.domain.Participants;
 import com.universaldoctor.studies.domain.Study;
 import java.util.Optional;
 import java.util.Set;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /**
