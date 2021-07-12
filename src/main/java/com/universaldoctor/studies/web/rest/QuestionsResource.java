@@ -194,6 +194,19 @@ public class QuestionsResource {
     }
 
     /**
+     * {@code GET  /questions/:id} : get the "id" questions.
+     *
+     * @param id the id of the questions to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the questions, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("forms/{id}/questions")
+    public ResponseEntity<Set<Questions>> getQuestionsFromForm(@PathVariable String id) {
+        log.debug("REST request to get Questions : {}", id);
+        Optional<Forms> form = formsRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(questionsRepository.findAllByForms(form.get()));
+    }
+
+    /**
      * {@code DELETE  /questions/:id} : delete the "id" questions.
      *
      * @param id the id of the questions to delete.
