@@ -1,6 +1,8 @@
 package com.universaldoctor.studies.web.rest;
 
+import com.universaldoctor.studies.domain.Forms;
 import com.universaldoctor.studies.domain.Questions;
+import com.universaldoctor.studies.repository.FormsRepository;
 import com.universaldoctor.studies.repository.QuestionsRepository;
 import com.universaldoctor.studies.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -8,6 +10,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,9 +34,11 @@ public class QuestionsResource {
     private String applicationName;
 
     private final QuestionsRepository questionsRepository;
+    private final FormsRepository formsRepository;
 
-    public QuestionsResource(QuestionsRepository questionsRepository) {
+    public QuestionsResource(QuestionsRepository questionsRepository, FormsRepository formsRepository) {
         this.questionsRepository = questionsRepository;
+        this.formsRepository = formsRepository;
     }
 
     /**
@@ -189,6 +194,19 @@ public class QuestionsResource {
         log.debug("REST request to get Questions : {}", id);
         Optional<Questions> questions = questionsRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(questions);
+    }
+
+    /**
+     * {@code GET  /questions/:id} : get the "id" questions.
+     *
+     * @param id the id of the questions to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the questions, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("forms/{id}/questions")
+    public ResponseEntity<Set<Questions>> getQuestionsFromForm(@PathVariable String id) {
+        log.debug("REST request to get Questions : {}", id);
+        Optional<Forms> form = formsRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(questionsRepository.findAllByForms(form.get()));
     }
 
     /**

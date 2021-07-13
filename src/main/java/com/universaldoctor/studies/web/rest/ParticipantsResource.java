@@ -1,13 +1,16 @@
 package com.universaldoctor.studies.web.rest;
 
 import com.universaldoctor.studies.domain.Participants;
+import com.universaldoctor.studies.domain.Study;
 import com.universaldoctor.studies.repository.ParticipantsRepository;
+import com.universaldoctor.studies.repository.StudyRepository;
 import com.universaldoctor.studies.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,9 +34,11 @@ public class ParticipantsResource {
     private String applicationName;
 
     private final ParticipantsRepository participantsRepository;
+    private final StudyRepository studyRepository;
 
-    public ParticipantsResource(ParticipantsRepository participantsRepository) {
+    public ParticipantsResource(ParticipantsRepository participantsRepository, StudyRepository studyRepository) {
         this.participantsRepository = participantsRepository;
+        this.studyRepository = studyRepository;
     }
 
     /**
@@ -59,7 +64,7 @@ public class ParticipantsResource {
     /**
      * {@code PUT  /participants/:id} : Updates an existing participants.
      *
-     * @param id the id of the participants to save.
+     * @param id           the id of the participants to save.
      * @param participants the participants to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated participants,
      * or with status {@code 400 (Bad Request)} if the participants is not valid,
@@ -93,7 +98,7 @@ public class ParticipantsResource {
     /**
      * {@code PATCH  /participants/:id} : Partial updates given fields of an existing participants, field will ignore if it is null
      *
-     * @param id the id of the participants to save.
+     * @param id           the id of the participants to save.
      * @param participants the participants to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated participants,
      * or with status {@code 400 (Bad Request)} if the participants is not valid,
@@ -174,6 +179,18 @@ public class ParticipantsResource {
         log.debug("REST request to get Participants : {}", id);
         Optional<Participants> participants = participantsRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(participants);
+    }
+
+    /**
+     * {@code GET  /studies/:id/participants} : get all the studies.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of the forms by study.
+     */
+    @GetMapping("/studies/{id}/participants")
+    public ResponseEntity<Set<Participants>> getAllParticipantsByStudy(@PathVariable String id) {
+        log.debug("REST request to get all Studies");
+        Optional<Study> study = studyRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(participantsRepository.findAllByStudy(study.get()));
     }
 
     /**
