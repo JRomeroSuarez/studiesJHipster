@@ -97,27 +97,29 @@ describe('Questions e2e test', () => {
     cy.get(entityCreateButtonSelector).click({ force: true });
     cy.getEntityCreateUpdateHeading('Questions');
 
-    cy.get(`[data-cy="subtitle"]`).type('mint Car Island').should('have.value', 'mint Car Island');
+    cy.get(`[data-cy="question"]`).type('mint Car Island').should('have.value', 'mint Car Island');
 
-    cy.get(`[data-cy="info"]`).type('monitoring fuchsia').should('have.value', 'monitoring fuchsia');
+    cy.get(`[data-cy="subtitle"]`).type('monitoring fuchsia').should('have.value', 'monitoring fuchsia');
 
-    cy.get(`[data-cy="fieldType"]`).select('FREE_TEXT');
+    cy.get(`[data-cy="info"]`).type('Card').should('have.value', 'Card');
+
+    cy.get(`[data-cy="fieldType"]`).select('RANGE');
 
     cy.get(`[data-cy="mandatory"]`).should('not.be.checked');
     cy.get(`[data-cy="mandatory"]`).click().should('be.checked');
 
-    cy.get(`[data-cy="variableName"]`).type('Berkshire firewall Berkshire').should('have.value', 'Berkshire firewall Berkshire');
+    cy.get(`[data-cy="variableName"]`).type('Swaziland harness seamless').should('have.value', 'Swaziland harness seamless');
 
-    cy.get(`[data-cy="units"]`).type('seamless').should('have.value', 'seamless');
+    cy.get(`[data-cy="units"]`).type('Buckinghamshire Sao').should('have.value', 'Buckinghamshire Sao');
 
     cy.get(`[data-cy="conditional"]`).should('not.be.checked');
     cy.get(`[data-cy="conditional"]`).click().should('be.checked');
 
-    cy.get(`[data-cy="creationDate"]`).type('2021-07-08T20:34').should('have.value', '2021-07-08T20:34');
+    cy.get(`[data-cy="creationDate"]`).type('2021-07-09T07:44').should('have.value', '2021-07-09T07:44');
 
-    cy.get(`[data-cy="editDate"]`).type('2021-07-08T14:08').should('have.value', '2021-07-08T14:08');
+    cy.get(`[data-cy="editDate"]`).type('2021-07-09T01:42').should('have.value', '2021-07-09T01:42');
 
-    cy.get(`[data-cy="actions"]`).type('Sao Canyon infomediaries').should('have.value', 'Sao Canyon infomediaries');
+    cy.get(`[data-cy="actions"]`).type('Zloty Kong').should('have.value', 'Zloty Kong');
 
     cy.setFieldSelectToLastOfEntity('forms');
 

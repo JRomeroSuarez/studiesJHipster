@@ -2,6 +2,10 @@
   "name": "Questions",
   "fields": [
     {
+      "fieldName": "question",
+      "fieldType": "String"
+    },
+    {
       "fieldName": "subtitle",
       "fieldType": "String"
     },

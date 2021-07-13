@@ -18,6 +18,7 @@
         "title": "Questions"
       },
       "id": "ID",
+      "question": "Question",
       "subtitle": "Subtitle",
       "info": "Info",
       "fieldType": "Field Type",

@@ -100,6 +100,13 @@ export const QuestionsUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 />
               ) : null}
               <ValidatedField
+                label={translate('studiesJHipsterApp.questions.question')}
+                id="questions-question"
+                name="question"
+                data-cy="question"
+                type="text"
+              />
+              <ValidatedField
                 label={translate('studiesJHipsterApp.questions.subtitle')}
                 id="questions-subtitle"
                 name="subtitle"

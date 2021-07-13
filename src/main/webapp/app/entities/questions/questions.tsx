@@ -50,6 +50,9 @@ export const Questions = (props: RouteComponentProps<{ url: string }>) => {
                   <Translate contentKey="studiesJHipsterApp.questions.id">ID</Translate>
                 </th>
                 <th>
+                  <Translate contentKey="studiesJHipsterApp.questions.question">Question</Translate>
+                </th>
+                <th>
                   <Translate contentKey="studiesJHipsterApp.questions.subtitle">Subtitle</Translate>
                 </th>
                 <th>
@@ -93,6 +96,7 @@ export const Questions = (props: RouteComponentProps<{ url: string }>) => {
                       {questions.id}
                     </Button>
                   </td>
+                  <td>{questions.question}</td>
                   <td>{questions.subtitle}</td>
                   <td>{questions.info}</td>
                   <td>

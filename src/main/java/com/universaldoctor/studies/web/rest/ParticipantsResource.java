@@ -1,19 +1,13 @@
 package com.universaldoctor.studies.web.rest;
 
-import com.universaldoctor.studies.domain.Forms;
 import com.universaldoctor.studies.domain.Participants;
-import com.universaldoctor.studies.domain.Study;
-import com.universaldoctor.studies.repository.FormsRepository;
 import com.universaldoctor.studies.repository.ParticipantsRepository;
-import com.universaldoctor.studies.repository.StudyRepository;
 import com.universaldoctor.studies.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
-import javax.mail.Part;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,11 +31,9 @@ public class ParticipantsResource {
     private String applicationName;
 
     private final ParticipantsRepository participantsRepository;
-    private final StudyRepository studyRepository;
 
-    public ParticipantsResource(ParticipantsRepository participantsRepository, StudyRepository studyRepository) {
+    public ParticipantsResource(ParticipantsRepository participantsRepository) {
         this.participantsRepository = participantsRepository;
-        this.studyRepository = studyRepository;
     }
 
     /**
@@ -182,18 +174,6 @@ public class ParticipantsResource {
         log.debug("REST request to get Participants : {}", id);
         Optional<Participants> participants = participantsRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(participants);
-    }
-
-    /**
-     * {@code GET  /studies/:id/participants} : get all the studies.
-     *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of the forms by study.
-     */
-    @GetMapping("/studies/{id}/participants")
-    public ResponseEntity<Set<Participants>> getAllParticipantsByStudy(@PathVariable String id) {
-        log.debug("REST request to get all Studies");
-        Optional<Study> study = studyRepository.findById(id);
-        return ResponseUtil.wrapOrNotFound(participantsRepository.findAllByStudy(study.get()));
     }
 
     /**

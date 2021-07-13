@@ -22,6 +22,9 @@ public class Questions implements Serializable {
     @Id
     private String id;
 
+    @Field("question")
+    private String question;
+
     @Field("subtitle")
     private String subtitle;
 
@@ -74,6 +77,19 @@ public class Questions implements Serializable {
     public Questions id(String id) {
         this.id = id;
         return this;
+    }
+
+    public String getQuestion() {
+        return this.question;
+    }
+
+    public Questions question(String question) {
+        this.question = question;
+        return this;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     public String getSubtitle() {
@@ -274,6 +290,7 @@ public class Questions implements Serializable {
     public String toString() {
         return "Questions{" +
             "id=" + getId() +
+            ", question='" + getQuestion() + "'" +
             ", subtitle='" + getSubtitle() + "'" +
             ", info='" + getInfo() + "'" +
             ", fieldType='" + getFieldType() + "'" +

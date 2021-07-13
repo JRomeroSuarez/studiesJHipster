@@ -5,6 +5,7 @@ import { FieldType } from 'app/shared/model/enumerations/field-type.model';
 
 export interface IQuestions {
   id?: string;
+  question?: string | null;
   subtitle?: string | null;
   info?: string | null;
   fieldType?: FieldType | null;

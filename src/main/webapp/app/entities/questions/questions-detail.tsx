@@ -30,6 +30,12 @@ export const QuestionsDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dt>
           <dd>{questionsEntity.id}</dd>
           <dt>
+            <span id="question">
+              <Translate contentKey="studiesJHipsterApp.questions.question">Question</Translate>
+            </span>
+          </dt>
+          <dd>{questionsEntity.question}</dd>
+          <dt>
             <span id="subtitle">
               <Translate contentKey="studiesJHipsterApp.questions.subtitle">Subtitle</Translate>
             </span>

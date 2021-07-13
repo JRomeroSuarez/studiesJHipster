@@ -44,6 +44,9 @@
     "clientThemeVariant": "",
     "languages": ["en", "es"],
     "entities": ["Study", "Participants", "Forms", "Questions", "Answer", "FormAnswer"],
-    "lastLiquibaseTimestamp": 1625820771000
+    "lastLiquibaseTimestamp": 1625820771000,
+    "herokuAppName": "studies-j-hipster",
+    "herokuDeployType": "git",
+    "herokuJavaVersion": "11"
   }
 }

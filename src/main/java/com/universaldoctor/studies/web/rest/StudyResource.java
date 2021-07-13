@@ -1,9 +1,6 @@
 package com.universaldoctor.studies.web.rest;
 
-import com.universaldoctor.studies.domain.Forms;
 import com.universaldoctor.studies.domain.Study;
-import com.universaldoctor.studies.repository.FormsRepository;
-import com.universaldoctor.studies.repository.ParticipantsRepository;
 import com.universaldoctor.studies.repository.StudyRepository;
 import com.universaldoctor.studies.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -11,7 +8,6 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,8 +31,6 @@ public class StudyResource {
     private String applicationName;
 
     private final StudyRepository studyRepository;
-
-    private ParticipantsRepository participantsRepository;
 
     public StudyResource(StudyRepository studyRepository) {
         this.studyRepository = studyRepository;
@@ -65,7 +59,7 @@ public class StudyResource {
     /**
      * {@code PUT  /studies/:id} : Updates an existing study.
      *
-     * @param id    the id of the study to save.
+     * @param id the id of the study to save.
      * @param study the study to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated study,
      * or with status {@code 400 (Bad Request)} if the study is not valid,
@@ -97,7 +91,7 @@ public class StudyResource {
     /**
      * {@code PATCH  /studies/:id} : Partial updates given fields of an existing study, field will ignore if it is null
      *
-     * @param id    the id of the study to save.
+     * @param id the id of the study to save.
      * @param study the study to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated study,
      * or with status {@code 400 (Bad Request)} if the study is not valid,

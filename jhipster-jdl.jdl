@@ -22,6 +22,7 @@ entity Forms{
 }
 
 entity Questions{
+	question String
 	subtitle String
     info String
     fieldType FieldType
